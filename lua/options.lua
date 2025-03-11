@@ -54,7 +54,6 @@
 --o.undodir       =HOME .. '/.vim/files/undo/'
 ---- o.viminfo     = '100,n' .. HOME .. '/.vim/files/info/viminfo'
 
---vim.g.auto_save = 1
 HOME = os.getenv("HOME")
 
 vim.g.mapleader = '\\'
@@ -149,3 +148,5 @@ vim.g.material_style = "palenight"
 
 vim.g.python3_host_prog = "/Users/grzegorz/.asdf/shims/python3"
 vim.g.python_host_prog = "/Users/grzegorz/.asdf/shims/python2"
+
+vim.g.auto_save = 1
