@@ -1,4 +1,4 @@
-require("config.lazy")
+require("configs.lazy")
 --vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 --vim.g.mapleader = " "
 
@@ -15,19 +15,19 @@ require("config.lazy")
 --local lazy_config = require "configs.lazy"
 
 ---- load plugins
---require("lazy").setup({
-  --{
-    --"NvChad/NvChad",
-    --lazy = false,
-    --branch = "v2.5",
-    --import = "nvchad.plugins",
-    --config = function()
-      --require "options"
-    --end,
-  --},
+require("lazy").setup({
+  -- {
+  --   "NvChad/NvChad",
+  --   lazy = false,
+  --   branch = "v2.5",
+  --   import = "nvchad.plugins",
+  --   config = function()
+  --     require "options"
+  --   end,
+  -- },
 
-  --{ import = "plugins" },
---}, lazy_config)
+  { import = "plugins" },
+}, lazy_config)
 
 ---- load theme
 --dofile(vim.g.base46_cache .. "defaults")
@@ -42,8 +42,32 @@ require("config.lazy")
 -- Set up 'mini.deps' (customize to your liking)
 -- require('mini.deps').setup({ path = { package = path_package } })
 
-require('plugins')
+-- require('plugins')
 
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = { "ruby" }
+  }
+}
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false
+}
+)
+
+require'lspsaga'.init_lsp_saga {
+  error_sign = '!',
+  warn_sign = '^',
+  hint_sign = '?',
+  infor_sign = '~',
+  border_style = "round",
+  code_action_prompt = {
+    enable = false
+  }
+}
+require('oil').setup()
 require('options')
 require('mappings')
 require('test-vim')
