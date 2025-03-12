@@ -7,9 +7,6 @@
 
 HOME = os.getenv("HOME")
 
-vim.g.mapleader = '\\'
-vim.g.maplocalleader = ','
-
 vim.opt.cursorlineopt ='both'                   -- to enable cursorline!
 --vim.opt.nocompatible  =true
 vim.opt.number        =true
