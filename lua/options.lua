@@ -5,41 +5,43 @@
 --local o         =vim.o
 --HOME            =os.getenv("HOME")
 
---o.cursorlineopt ='both'                   -- to enable cursorline!
---o.nocompatible  =true
---o.number        =true
---o.encoding      ='utf-8'
---o.termguicolors =true
+HOME = os.getenv("HOME")
 
---o.autoindent    =true                     -- Indent according to previous line.
---o.expandtab     =true                     -- Use spaces instead of tabs.
---o.softtabstop   =2                        -- Tab key indents by 2 spaces.
---o.shiftwidth    =2                        -- >> indents by 2 spaces.
---o.shiftround    =true                     -- >> indents to next multiple of 'shiftwidth'.
+vim.g.mapleader = '\\'
+vim.g.maplocalleader = ','
+
+vim.opt.cursorlineopt ='both'                   -- to enable cursorline!
+--vim.opt.nocompatible  =true
+vim.opt.number        =true
+--o.encoding      ='utf-8'
+vim.opt.termguicolors =true
+
+vim.opt.softtabstop   =2                        -- Tab key indents by 2 spaces.
+vim.opt.shiftround    =true                     -- >> indents to next multiple of 'shiftwidth'.
 
 --o.backspace     ='indent,eol,start'       -- Make backspace work as you would expect.
---o.hidden        =true                     -- Switch between buffers without having to save first.
+vim.opt.hidden        =true                     -- Switch between buffers without having to save first.
 --o.laststatus    =2                        -- Always show statusline.
---o.display       ='lastline'               -- Show as much as possible of the last line.
+vim.opt.display       ='lastline'               -- Show as much as possible of the last line.
 
---o.showmode      =true                     -- Show current mode in command-line.
+vim.opt.showmode      =true                     -- Show current mode in command-line.
 --o.showcmd       =true                     -- Show already typed keys when more are expected.
 
 --o.incsearch     =true                     -- Highlight while searching with / or ?.
---o.hlsearch      =true                     -- Keep matches highlighted.
+vim.opt.hlsearch      =true                     -- Keep matches highlighted.
 
---o.ttyfast       =true                     -- Faster redrawing.
---o.lazyredraw    =true                     -- Only redraw when necessary.
+vim.opt.ttyfast       =true                     -- Faster redrawing.
+vim.opt.lazyredraw    =true                     -- Only redraw when necessary.
 
---o.splitbelow    =true                     -- Open new windows below the current window.
---o.splitright    =true                     -- Open new windows right of the current window.
+vim.opt.splitbelow    =true                     -- Open new windows below the current window.
+vim.opt.splitright    =true                     -- Open new windows right of the current window.
 
 ---- o.cursorline                           -- Find the current line quickly.
---o.wrapscan      =true                     -- Searches wrap around end-of-file.
---o.report        =0                        -- Always report changed lines.
+vim.opt.wrapscan      =true                     -- Searches wrap around end-of-file.
+vim.opt.report        =0                        -- Always report changed lines.
 --o.synmaxcol     =200                      -- Only highlight the first 200 columns.
---o.mouse         ='a'
---o.ruler         =true
+vim.opt.mouse         ='a'
+vim.opt.ruler         =true
 
 --o.list          =true                     -- Show non-printable characters.
 
@@ -54,10 +56,6 @@
 --o.undodir       =HOME .. '/.vim/files/undo/'
 ---- o.viminfo     = '100,n' .. HOME .. '/.vim/files/info/viminfo'
 
-HOME = os.getenv("HOME")
-
-vim.g.mapleader = '\\'
-vim.g.maplocalleader = ','
 
 -- basic settings
 vim.opt.encoding = "utf-8"
@@ -75,10 +73,10 @@ vim.opt.ttimeoutlen = 100
 -- Display
 vim.opt.showmatch  = true -- show matching brackets
 vim.opt.scrolloff = 3 -- always show 3 rows from edge of the screen
-vim.opt.synmaxcol = 300 -- stop syntax highlight after x lines for performance
+vim.opt.synmaxcol = 200 -- stop syntax highlight after x lines for performance
 vim.opt.laststatus = 2 -- always show status line
 
-vim.opt.list = false -- do not display white characters
+vim.opt.list = true -- do not display white characters
 vim.opt.foldenable = false
 vim.opt.foldlevel = 4 -- limit folding to 4 levels
 vim.opt.foldmethod = 'syntax' -- use language syntax to generate folds
