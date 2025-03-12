@@ -143,4 +143,6 @@ vim.cmd("noremap <silent> <Leader>rrd :call BindingRemotePry()<CR>")
 vim.cmd("noremap <silent> <Leader>rb :call RunSpec(expand('%'), '-fd '. expand('%:p'))<CR>")
 vim.cmd("noremap <silent> <Leader>rf :call RunSpec(expand('%'), '-fd '. expand('%:p') . ':' . line('.'))<CR>")
 
+nmap("<leader>gf", ":TSToolsGoToSourceDefinition sync")
+
 vim.cmd("colorscheme catppuccin-frappe")

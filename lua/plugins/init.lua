@@ -19,7 +19,13 @@ return {
     opts = {
       ensure_installed = {
         "lua-language-server", "stylua",
-        "html-lsp", "css-lsp" , "prettier"
+        "html-lsp", "css-lsp" , "prettier",
+        "eslint_d", "pylint", "erb-lint",
+        "bash-language-server",
+        "python-lsp-server",
+        "rubocop",
+        "ruby-lsp",
+        "typescript-language-server"
       },
     },
   },
@@ -113,5 +119,10 @@ return {
   config = function()
     require("oil").setup()
   end,
+},
+{
+  "pmizio/typescript-tools.nvim",
+  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  opts = {},
 }
 }
