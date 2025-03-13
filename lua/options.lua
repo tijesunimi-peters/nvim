@@ -40,8 +40,6 @@ vim.opt.report        =0                        -- Always report changed lines.
 vim.opt.mouse         ='a'
 vim.opt.ruler         =true
 
-vim.opt.wildignore+='*.pyc,*.o,*.class,*.lo,.git,vendor/*,node_modules/**,bower_components/**,*/build_gradle/*,*/build_intellij/*,*/build/*,*/cassandra_data/*'
-
 --o.list          =true                     -- Show non-printable characters.
 
 --o.backup        =true
@@ -125,7 +123,7 @@ vim.cmd([[
 
 -- Commands mode
 vim.opt.wildmenu = true -- on TAB, complete options for system command
-vim.opt.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
+vim.opt.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,*.pyc,*.o,*.class,*.lo,.git,vendor/*,node_modules/**,bower_components/**,*/build_gradle/*,*/build_intellij/*,*/build/*,*/cassandra_data/*'
 
 -- Only show cursorline in the current window and in normal mode.
 vim.cmd([[
