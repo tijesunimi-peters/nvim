@@ -131,6 +131,38 @@ function! RunSpec(spec_path, spec_opts)
     echo '<< WARNING >> RunSpec() can only be called from inside spec files!'
   endif
 endfunction
+
+function! TestContext()
+  wall
+  let [_, lnum, cnum, _] = getpos('.')
+  RubyBlockSpecParentContext
+  TestNearest
+  call cursor(lnum, cnum)
+endfunction
+
+command! TestContext :call TestContext()
+
+map <silent> <LocalLeader>rc :TestContext<CR>
+map <silent> <LocalLeader>rb :wa<CR>:TestFile<CR>
+map <silent> <LocalLeader>rf :wa<CR>:TestNearest<CR>
+map <silent> <LocalLeader>rl :wa<CR>:TestLast<CR>
+map <silent> <LocalLeader>rx :wa<CR>:VimuxCloseRunner<CR>
+map <silent> <LocalLeader>ri :wa<CR>:VimuxInspectRunner<CR>
+map <silent> <LocalLeader>rs :!ruby -c %<CR>
+map <silent> <LocalLeader>AA   :A<CR>
+map <silent> <LocalLeader>AV   :AV<CR>
+map <silent> <LocalLeader>AS   :AS<CR>
+
+" Restore vim-diff shortcuts
+silent! unmap ]c
+map <silent> ]C :RubyBlockSpecParentContext<CR>
+
+map <LocalLeader>rd Orequire "pry"; binding.pry<ESC>
+
+" Search for tag
+nmap <silent> <LocalLeader>] :Tags '<C-R><C-W> <CR>
+
+setlocal isk+=?
 ]])
 
 nmap("<C-p>", "<cmd>Files<CR>")
@@ -143,6 +175,16 @@ vim.cmd("noremap <silent> <Leader>rrd :call BindingRemotePry()<CR>")
 vim.cmd("noremap <silent> <Leader>rb :call RunSpec(expand('%'), '-fd '. expand('%:p'))<CR>")
 vim.cmd("noremap <silent> <Leader>rf :call RunSpec(expand('%'), '-fd '. expand('%:p') . ':' . line('.'))<CR>")
 
-nmap("<leader>gf", "<cmd>TSToolsGoToSourceDefinition sync")
+-- GitHubURL
+vim.cmd("map <silent> <LocalLeader>gh :GitHubURL<CR>")
+
+-- TComment
+vim.cmd("map <silent> <LocalLeader>cc :TComment<CR>")
+vim.cmd("map <silent> <LocalLeader>uc :TComment<CR>")
+
+-- Pasting over a selection does not replace the clipboard
+vim.cmd("xnoremap <expr> p 'pgv\"'.v:register.'y'")
+
+nmap("<leader>gf", "<cmd>TSToolsGoToSourceDefinition sync<CR>")
 
 vim.cmd("colorscheme catppuccin-frappe")

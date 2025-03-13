@@ -9,6 +9,7 @@ if [[ ! -d "$HOME/.nvim_setup.loaded" ]]; then
   cp -r $HOME/.nvim_setup/lua $HOME/.config/nvim     
   cp $HOME/.nvim_setup/init.lua $HOME/.config/nvim/init.lua     
   cp $HOME/.nvim_setup/.stylua.toml $HOME/.config/nvim/.stylua.toml    
+  mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init_vim.old 
 
   touch "$HOME/.nvim_setup.loaded"
 

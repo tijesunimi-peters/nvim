@@ -40,6 +40,8 @@ vim.opt.report        =0                        -- Always report changed lines.
 vim.opt.mouse         ='a'
 vim.opt.ruler         =true
 
+vim.opt.wildignore+='*.pyc,*.o,*.class,*.lo,.git,vendor/*,node_modules/**,bower_components/**,*/build_gradle/*,*/build_intellij/*,*/build/*,*/cassandra_data/*'
+
 --o.list          =true                     -- Show non-printable characters.
 
 --o.backup        =true
