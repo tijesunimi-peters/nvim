@@ -24,7 +24,7 @@ require("lazy").setup({
 -- require('mini.deps').setup({ path = { package = path_package } })
 
 vim.schedule(function()
-  require("mini.icons").setup({ config = { style = "ascii" }})
+  require("mini.icons").setup()
   require('nvim-treesitter.configs').setup({
     highlight = {
       enable = true,

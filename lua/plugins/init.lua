@@ -88,7 +88,7 @@ return {
 { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} },
 {'tpope/vim-eunuch'}, -- wrappers UNIX commands
 {'tpope/vim-surround'}, -- surround characters shortcuts
-{'nvim-tree/nvim-web-devicons'}, -- icons in file explorer
+{'nvim-tree/nvim-web-devicons', opts = {}}, -- icons in file explorer
 
 { "catppuccin/nvim", as = "catppuccin" },
 
