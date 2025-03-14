@@ -99,10 +99,11 @@ nmap("<leader>be", "<cmd>Telescope buffers<cr>")
 nmap("<leader>hh", "<cmd>Telescope help_tags<cr>")
 
 -- LSP
-nmap('K', '<cmd>Lspsaga hover_doc<cr>')
+nmap('<Leader>K', '<cmd>Lspsaga hover_doc<cr>')
 imap('<C-k>', '<cmd>Lspsaga hover_doc<cr>')
 nmap('gh', '<cmd>Lspsaga lsp_finder<cr>')
-nmap('<C-e>', '<cmd>Lspsaga show_line_diagnostics<CR>')
+nmap('<Leader>ce', '<cmd>Lspsaga show_line_diagnostics<CR>')
+nmap('<Leader>[e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 
 -- git
 nmap('<C-g>', '<cmd>GitMessenger<cr>')
@@ -142,17 +143,6 @@ endfunction
 
 command! TestContext :call TestContext()
 
-map <silent> <LocalLeader>rc :TestContext<CR>
-map <silent> <LocalLeader>rb :wa<CR>:TestFile<CR>
-map <silent> <LocalLeader>rf :wa<CR>:TestNearest<CR>
-map <silent> <LocalLeader>rl :wa<CR>:TestLast<CR>
-map <silent> <LocalLeader>rx :wa<CR>:VimuxCloseRunner<CR>
-map <silent> <LocalLeader>ri :wa<CR>:VimuxInspectRunner<CR>
-map <silent> <LocalLeader>rs :!ruby -c %<CR>
-map <silent> <LocalLeader>AA   :A<CR>
-map <silent> <LocalLeader>AV   :AV<CR>
-map <silent> <LocalLeader>AS   :AS<CR>
-
 " Restore vim-diff shortcuts
 silent! unmap ]c
 map <silent> ]C :RubyBlockSpecParentContext<CR>
@@ -164,6 +154,17 @@ nmap <silent> <LocalLeader>] :Tags '<C-R><C-W> <CR>
 
 setlocal isk+=?
 ]])
+
+vim.cmd("map <silent> <LocalLeader>rc :TestContext<CR>")
+vim.cmd("map <silent> <LocalLeader>rb :wa<CR>:TestFile<CR>")
+vim.cmd("map <silent> <LocalLeader>rf :wa<CR>:TestNearest<CR>")
+vim.cmd("map <silent> <LocalLeader>rl :wa<CR>:TestLast<CR>")
+vim.cmd("map <silent> <LocalLeader>rx :wa<CR>:VimuxCloseRunner<CR>")
+vim.cmd("map <silent> <LocalLeader>ri :wa<CR>:VimuxInspectRunner<CR>")
+vim.cmd("map <silent> <LocalLeader>rs :!ruby -c %<CR>")
+vim.cmd("map <silent> <LocalLeader>AA   :A<CR>")
+vim.cmd("map <silent> <LocalLeader>AV   :AV<CR>")
+vim.cmd("map <silent> <LocalLeader>AS   :AS<CR>")
 
 nmap("<C-p>", "<cmd>Files<CR>")
 nmap("<leader>to", "<cmd>tabnew<CR>")

@@ -69,7 +69,9 @@ return {
   end,
 },
 {'williamboman/nvim-lsp-installer'},
-{'tami5/lspsaga.nvim'},
+{'nvimdev/lspsaga.nvim', config = function()
+  require("lspsaga").setup({})
+end},
 {'onsails/lspkind.nvim'}, -- icons in autocomplete source
 {'hrsh7th/nvim-cmp'}, -- autocomplete engine (see autocomplete.lua)
 {'hrsh7th/cmp-nvim-lsp'}, -- LSP source for cmp
