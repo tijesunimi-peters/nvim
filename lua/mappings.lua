@@ -104,6 +104,7 @@ imap('<C-k>', '<cmd>Lspsaga hover_doc<cr>')
 nmap('gh', '<cmd>Lspsaga lsp_finder<cr>')
 nmap('<Leader>ce', '<cmd>Lspsaga show_line_diagnostics<CR>')
 nmap('<Leader>[e', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+nmap('<Leader>[[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
 
 -- git
 nmap('<C-g>', '<cmd>GitMessenger<cr>')
