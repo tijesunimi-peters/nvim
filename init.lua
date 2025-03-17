@@ -37,16 +37,6 @@ vim.schedule(function()
     virtual_text = false
   })
 
-  --require('lspsaga').init_lsp_saga({
-    --error_sign = '!',
-    --warn_sign = '^',
-    --hint_sign = '?',
-    --infor_sign = '~',
-    --border_style = "round",
-    --code_action_prompt = {
-      --enable = false
-    --}
-  --})
 
   require('options')
   require('mappings')
@@ -54,6 +44,6 @@ vim.schedule(function()
   --require('vue')
   --require('autocompletion')
   require('telescope-config')
-  require('lsp-config')
+  --require('lsp-config')
   require('run-current')
 end)

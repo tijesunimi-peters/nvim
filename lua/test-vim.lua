@@ -38,35 +38,36 @@ end
 --end
 
 -- custom strategy
-vim.cmd([[
-  function! NeotermTest(cmd)
-    if g:neoterm.has_any()
-      let l:id = g:neoterm.last_id
-      let l:instance = g:neoterm.instances[l:id]
-      if bufwinnr(l:instance.buffer_id) <= 0
-        execute "split"
-        execute "resize 20"
-        call neoterm#open({ 'target': l:id })
-      endif
-      call neoterm#do({ 'cmd': a:cmd, 'target': l:id })
-    else
-      execute "split"
-      execute "resize 20"
-      execute "enew"
-      call neoterm#new()
-      call neoterm#do({ 'cmd': a:cmd })
-    endif
-  endfunction
-]])
+--vim.cmd([[
+  --function! NeotermTest(cmd)
+    --if g:neoterm.has_any()
+      --let l:id = g:neoterm.last_id
+      --let l:instance = g:neoterm.instances[l:id]
+      --if bufwinnr(l:instance.buffer_id) <= 0
+        --execute "split"
+        --execute "resize 20"
+        --call neoterm#open({ 'target': l:id })
+      --endif
+      --call neoterm#do({ 'cmd': a:cmd, 'target': l:id })
+    --else
+      --execute "split"
+      --execute "resize 20"
+      --execute "enew"
+      --call neoterm#new()
+      --call neoterm#do({ 'cmd': a:cmd })
+    --endif
+  --endfunction
+--]])
 
 -- settings
-vim.g.test = {}
-vim.g["test#custom_strategies"] = {
-  CustomNeotermStrategy = NeotermTest
-}
-vim.g["test#strategy"] = 'CustomNeotermStrategy'
-vim.g["test#preserve_screen"] = 1
-vim.g.neoterm_autoscroll = 1 -- always scroll to the end of the command output
+--vim.g.test = {}
+--vim.g["test#custom_strategies"] = {
+  --CustomNeotermStrategy = NeotermTest
+--}
+vim.g["test#strategy"] = 'neovim'
+vim.g["test#javascript#runner"] = 'jest'
+--vim.g["test#preserve_screen"] = 1
+--vim.g.neoterm_autoscroll = 1 -- always scroll to the end of the command output
 
 -- mappings
 nmap('<leader>t', ':TestNearest<CR>')

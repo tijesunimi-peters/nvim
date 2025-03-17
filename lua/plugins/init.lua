@@ -25,7 +25,8 @@ return {
         "python-lsp-server",
         "rubocop",
         "ruby-lsp",
-        "typescript-language-server"
+        "typescript-language-server",
+        "graphql-language-service-cli",
       },
     },
   },
@@ -35,7 +36,7 @@ return {
     opts = {
       ensure_installed = {
         "vim", "lua", "vimdoc",
-        "html", "css"
+        "html", "css", "markdown", "markdown_inline"
       },
     },
   },
@@ -64,26 +65,44 @@ return {
 {
   "neovim/nvim-lspconfig",
   config = function()
-    --require("nvchad.configs.lspconfig").defaults()
-    --require "configs.lspconfig"
+    require("lspconfig").graphql.setup({
+      cmd = { "graphql-lsp", "server", "-m", "stdio" },
+      filetypes = { "typescript", "typescriptreact", "graphql" },
+      settings = {
+        graphql = {
+          configDir = vim.fn.getcwd(),
+          load = {
+            legacy = true,
+          },
+        },
+      },
+    })
   end,
 },
 {'williamboman/nvim-lsp-installer'},
-{'nvimdev/lspsaga.nvim', config = function()
-  require("lspsaga").setup({})
-end},
+{'nvimdev/lspsaga.nvim', 
+config = function()
+	require('lspsaga').setup({
+		diagnostic_only_current = true,
+    use_saga_diagnostic_sign = true,
+    ui = {
+    }
+	})
+end,
+after = 'neovim/nvim-lspconfig'
+},
 {'onsails/lspkind.nvim'}, -- icons in autocomplete source
 {'hrsh7th/nvim-cmp'}, -- autocomplete engine (see autocomplete.lua)
 {'hrsh7th/cmp-nvim-lsp'}, -- LSP source for cmp
 {'hrsh7th/cmp-buffer'}, -- buffer source for cmp
 {'hrsh7th/cmp-path'}, -- path source for cmp
-{
-  'nvim-treesitter/nvim-treesitter',
-  run = function()
-    local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-    ts_update()
-  end,
-},
+--{
+  --'nvim-treesitter/nvim-treesitter',
+  --run = function()
+    --local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+    --ts_update()
+  --end,
+--},
 {'scrooloose/nerdcommenter'}, -- commenting shortcuts
 
 -- search
@@ -95,8 +114,8 @@ end},
 { "catppuccin/nvim", as = "catppuccin" },
 
 -- testing
-{'kassio/neoterm'}, -- terminal wrapper
-{'janko-m/vim-test'}, -- testing commands
+--{'kassio/neoterm'}, -- terminal wrapper
+{'vim-test/vim-test'}, -- testing commands
 
 -- javascript
 { 'HerringtonDarkholme/yats.vim', ft = 'typescript' },
@@ -128,4 +147,6 @@ end},
   opts = {},
 },
 {"Pocco81/auto-save.nvim"},
+{"jparise/vim-graphql"},
+{"slarwise/vim-tmux-send"}
 }

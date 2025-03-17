@@ -126,7 +126,6 @@ endfunction
 function! RunSpec(spec_path, spec_opts)
   let speccish = match(@%, '_spec.rb$') != -1
   if speccish
-    "execute '!bundle exec rspec ' . a:spec_opts . ' ' . a:spec_path
     SendKeys("clear ENTER")
     SendKeys("'bundle exec rspec " . a:spec_opts ."' ENTER")
   else

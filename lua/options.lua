@@ -136,6 +136,10 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.diagnostic.config({
+    virtual_text = false
+})
+
 vim.opt.background = 'dark'
 --vim.cmd('colorscheme Tomorrow-Night')
 vim.g.material_style = "palenight"
